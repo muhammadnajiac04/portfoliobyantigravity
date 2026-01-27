@@ -73,3 +73,31 @@ window.addEventListener('mousemove', function (e) {
         top: `${posY}px`
     }, { duration: 500, fill: "forwards" });
 });
+
+/* Handle Form Submission */
+const form = document.querySelector('form');
+const modal = document.getElementById('success-modal');
+const closeModal = document.getElementById('close-modal');
+
+if (form) {
+    form.addEventListener('submit', () => {
+        // Show modal after a small delay to ensure the request is sent to the iframe
+        setTimeout(() => {
+            modal.style.display = 'flex';
+            form.reset();
+        }, 500);
+    });
+}
+
+if (closeModal) {
+    closeModal.addEventListener('click', () => {
+        modal.style.display = 'none';
+    });
+}
+
+// Close modal when clicking outside
+window.addEventListener('click', (e) => {
+    if (e.target == modal) {
+        modal.style.display = 'none';
+    }
+});

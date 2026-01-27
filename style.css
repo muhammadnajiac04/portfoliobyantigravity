@@ -42,7 +42,8 @@ body {
     border: 2px solid var(--main-color);
 }
 
-.cursor-dot, .cursor-outline {
+.cursor-dot,
+.cursor-outline {
     position: fixed;
     top: 0;
     left: 0;
@@ -144,7 +145,7 @@ section {
 .home-content p {
     font-size: 1.6rem;
     margin-bottom: 2.5rem;
-    max-width: 600px; 
+    max-width: 600px;
 }
 
 .social-media a {
@@ -218,15 +219,21 @@ section {
     height: 100%;
     background: linear-gradient(#bc13fe, #00f3ff);
     border-radius: 50%;
-    animation: circleRotate 5s linear infinite; 
+    animation: circleRotate 5s linear infinite;
 }
+
 .glowing-circle span:nth-child(2) {
     filter: blur(20px);
 }
 
 @keyframes circleRotate {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
 }
 
 .image {
@@ -406,7 +413,7 @@ section {
     box-shadow: 0 0 1rem var(--bg-color);
     overflow: hidden;
     display: flex;
-    height: 300px; 
+    height: 300px;
 }
 
 .portfolio-box img {
@@ -561,15 +568,15 @@ section {
     .header {
         padding: 2rem 3%;
     }
-    
+
     section {
         padding: 10rem 3% 2rem;
     }
-    
+
     .portfolio-container {
         grid-template-columns: repeat(2, 1fr);
     }
-    
+
     .footer {
         padding: 2rem 3%;
     }
@@ -579,7 +586,7 @@ section {
     #menu-icon {
         display: block;
     }
-    
+
     .navbar {
         position: absolute;
         top: 100%;
@@ -587,20 +594,21 @@ section {
         width: 100%;
         padding: 1rem 3%;
         background: var(--bg-color);
-        border-top: .1rem solid rgba(0,0,0,.1);
+        border-top: .1rem solid rgba(0, 0, 0, .1);
         display: none;
     }
-    
+
     .navbar.active {
         display: block;
         animation: fadeInDown 0.5s ease;
     }
-    
+
     @keyframes fadeInDown {
         from {
             opacity: 0;
             transform: translateY(-20px);
         }
+
         to {
             opacity: 1;
             transform: translateY(0);
@@ -612,40 +620,40 @@ section {
         font-size: 2rem;
         margin: 3rem 0;
     }
-    
+
     .home {
         flex-direction: column;
     }
-    
+
     .home-content h3 {
         font-size: 2.6rem;
     }
-    
+
     .home-content h1 {
         font-size: 5rem;
     }
-    
+
     .home-img {
         margin-top: 4rem;
     }
-    
+
     .about {
         flex-direction: column-reverse;
     }
-    
+
     .about img {
         width: 70vw;
         margin-top: 4rem;
     }
-    
+
     .services h2 {
         margin-bottom: 3rem;
     }
-    
+
     .portfolio-container {
         grid-template-columns: 1fr;
     }
-    
+
     .contact form .input-box input {
         width: 100%;
     }
@@ -655,17 +663,17 @@ section {
     .portfolio-container {
         grid-template-columns: 1fr;
     }
-    
+
     .glowing-circle {
         width: 300px;
         height: 300px;
     }
-    
+
     .glowing-circle::after {
         width: 280px;
         height: 280px;
     }
-    
+
     .image {
         width: 280px;
         height: 280px;
@@ -676,8 +684,70 @@ section {
     html {
         font-size: 50%;
     }
-    
+
     .contact form .input-box input {
         width: 100%;
     }
+}
+
+/* Success Modal */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(5px);
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    background-color: var(--second-bg-color);
+    padding: 4rem;
+    border-radius: 2rem;
+    text-align: center;
+    border: 2px solid var(--main-color);
+    box-shadow: 0 0 20px var(--main-color);
+    max-width: 400px;
+    width: 90%;
+    position: relative;
+    animation: zoomIn 0.3s ease;
+}
+
+@keyframes zoomIn {
+    from {
+        transform: scale(0.5);
+        opacity: 0;
+    }
+
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+.modal-content i {
+    font-size: 5rem;
+    color: var(--main-color);
+    margin-bottom: 2rem;
+}
+
+.modal-content h3 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    color: var(--text-color);
+}
+
+.modal-content p {
+    font-size: 1.6rem;
+    margin-bottom: 3rem;
+    color: #ccc;
+}
+
+.modal-content .btn {
+    cursor: pointer;
 }
